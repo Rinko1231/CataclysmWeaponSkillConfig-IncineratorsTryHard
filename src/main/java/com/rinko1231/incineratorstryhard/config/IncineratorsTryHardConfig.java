@@ -1,46 +1,46 @@
 package com.rinko1231.incineratorstryhard.config;
 
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 
 public class IncineratorsTryHardConfig
 {
-    public static ForgeConfigSpec SPEC;
-    public static ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static ForgeConfigSpec.DoubleValue maxHealthDamagePercent;
-    public static ForgeConfigSpec.DoubleValue basicSkillDamage;
-    public static ForgeConfigSpec.DoubleValue ignisCircleRadius;
-    public static ForgeConfigSpec.IntValue chargingTime;
-    public static ForgeConfigSpec.IntValue chargingTimeToMaxCircle;
+    public static ModConfigSpec SPEC;
+    public static ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static ModConfigSpec.DoubleValue maxHealthDamagePercent;
+    public static ModConfigSpec.DoubleValue basicSkillDamage;
+    public static ModConfigSpec.DoubleValue ignisCircleRadius;
+    public static ModConfigSpec.IntValue chargingTime;
+    public static ModConfigSpec.IntValue chargingTimeToMaxCircle;
 
-    public static ForgeConfigSpec.DoubleValue maxHealthDamagePercentForImmolator;
-    public static ForgeConfigSpec.DoubleValue basicSkillDamageForImmolator;
-    public static ForgeConfigSpec.DoubleValue ignisCircleRadiusForImmolator;
-    public static ForgeConfigSpec.IntValue chargingTimeForImmolator;
-    public static ForgeConfigSpec.IntValue chargingTimeToMaxCircleForImmolator;
-    public static ForgeConfigSpec.DoubleValue quakeRangeForImmolator;
-    public static ForgeConfigSpec.DoubleValue quakeDamageMultiplierForImmolator;
+    public static ModConfigSpec.DoubleValue maxHealthDamagePercentForImmolator;
+    public static ModConfigSpec.DoubleValue basicSkillDamageForImmolator;
+    public static ModConfigSpec.DoubleValue ignisCircleRadiusForImmolator;
+    public static ModConfigSpec.IntValue chargingTimeForImmolator;
+    public static ModConfigSpec.IntValue chargingTimeToMaxCircleForImmolator;
+    public static ModConfigSpec.DoubleValue quakeRangeForImmolator;
+    public static ModConfigSpec.DoubleValue quakeDamageMultiplierForImmolator;
 
-    public static ForgeConfigSpec.DoubleValue TidalClawsTentacleDamage;
-    public static ForgeConfigSpec.DoubleValue TidalClawsTentacleFirstRange;
-    public static ForgeConfigSpec.DoubleValue TidalClawsTentacleSecondRange;
-    public static ForgeConfigSpec.DoubleValue TidalClawsHookMaxRange;
-    public static ForgeConfigSpec.DoubleValue TidalClawsHookMaxSpeed;
+    public static ModConfigSpec.DoubleValue TidalClawsTentacleDamage;
+    public static ModConfigSpec.DoubleValue TidalClawsTentacleFirstRange;
+    public static ModConfigSpec.DoubleValue TidalClawsTentacleSecondRange;
+    public static ModConfigSpec.DoubleValue TidalClawsHookMaxRange;
+    public static ModConfigSpec.DoubleValue TidalClawsHookMaxSpeed;
 
-    public static ForgeConfigSpec.DoubleValue ChargeDamageMultiplierOfGauntletOfBulwark;
+    public static ModConfigSpec.DoubleValue ChargeDamageMultiplierOfGauntletOfBulwark;
 
-    public static ForgeConfigSpec.IntValue coolDownForBloomStonePauldrons;
+    public static ModConfigSpec.IntValue coolDownForBloomStonePauldrons;
 
-    public static ForgeConfigSpec.DoubleValue annihilatorSkillRange;
-    public static ForgeConfigSpec.DoubleValue annihilatorSkillDamageMultiplier;
-    public static ForgeConfigSpec.IntValue annihilatorChargingTime;
-    public static ForgeConfigSpec.IntValue annihilatorSkillCoolDown;
+    public static ModConfigSpec.DoubleValue annihilatorSkillRange;
+    public static ModConfigSpec.DoubleValue annihilatorSkillDamageMultiplier;
+    public static ModConfigSpec.IntValue annihilatorChargingTime;
+    public static ModConfigSpec.IntValue annihilatorSkillCoolDown;
 
-    public static ForgeConfigSpec.DoubleValue gauntletOfGuardSkillRange;
-    public static ForgeConfigSpec.DoubleValue getGauntletOfGuardSkillVectorScale;
+    public static ModConfigSpec.DoubleValue gauntletOfGuardSkillRange;
+    public static ModConfigSpec.DoubleValue getGauntletOfGuardSkillVectorScale;
 
     static
     {
@@ -157,7 +157,7 @@ public class IncineratorsTryHardConfig
 
     public static void setup()
     {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SPEC, "IncineratorsTryHard.toml");
+        ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.COMMON, SPEC, "IncineratorsTryHard.toml");
     }
 
 

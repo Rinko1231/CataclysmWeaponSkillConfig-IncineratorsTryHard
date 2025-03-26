@@ -10,7 +10,7 @@ description="Custom the damage, ignic circle and charging time of the Incinerato
 configBackground="minecraft:textures/block/bricks.png"
 
 [[dependencies.incineratorstryhard]] #optional
-    modId="forge" #mandatory
+    modId="neoForge" #mandatory
     mandatory=true #mandatory
     versionRange="[43,)" #mandatory
     ordering="NONE"
@@ -18,6 +18,6 @@ configBackground="minecraft:textures/block/bricks.png"
 [[dependencies.incineratorstryhard]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.1,)"
+    versionRange="[1.21.1,)"
     ordering="NONE"
     side="BOTH"

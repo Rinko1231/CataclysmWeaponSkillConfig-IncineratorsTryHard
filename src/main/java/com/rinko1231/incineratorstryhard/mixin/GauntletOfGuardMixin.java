@@ -12,7 +12,7 @@ import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Mixin(value = Gauntlet_of_Guard.class, remap = false)
+@Mixin(value = {Gauntlet_of_Guard.class}, remap = false)
 public abstract class GauntletOfGuardMixin extends Item {
 
     public GauntletOfGuardMixin(Properties p_41383_) {

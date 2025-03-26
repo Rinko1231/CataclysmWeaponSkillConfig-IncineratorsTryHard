@@ -8,10 +8,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = Tidal_Tentacle_Entity.class, remap = false)
+@Mixin(value = {Tidal_Tentacle_Entity.class}, remap = false)
 public abstract class TidalTentacleEntityMixin {
 
-    @Inject(method = "getBaseDamage", at = @At("HEAD"), cancellable = true)
+    @Inject(method = {"getBaseDamage"}, at = {@At("HEAD")}, cancellable = true)
     private void modifyBaseDamage(CallbackInfoReturnable<Float> cir) {
         cir.setReturnValue(IncineratorsTryHardConfig.TidalClawsTentacleDamage.get().floatValue());
     }

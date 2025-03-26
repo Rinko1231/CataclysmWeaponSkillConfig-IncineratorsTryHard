@@ -4,7 +4,7 @@ import com.github.L_Ender.cataclysm.config.CMConfig;
 import com.github.L_Ender.cataclysm.entity.effect.Flame_Strike_Entity;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
-import com.github.L_Ender.cataclysm.items.More_Tool_Attribute;
+import com.github.L_Ender.cataclysm.items.RangeTool;
 import com.github.L_Ender.cataclysm.items.The_Incinerator;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
 import net.minecraft.core.BlockPos;
@@ -25,22 +25,26 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = The_Incinerator.class)
+@Mixin(value = {The_Incinerator.class})
 
-public abstract class TheIncineratorMixin extends Item implements More_Tool_Attribute {
+public abstract class TheIncineratorMixin extends Item implements RangeTool {
 
     public TheIncineratorMixin(Properties p_41383_) {
         super(p_41383_);
     }
 
     @Shadow
-    public abstract int getUseDuration(@NotNull ItemStack p43394);
+    public abstract int getUseDuration(@NotNull ItemStack pStack, @NotNull LivingEntity pEntity);
 
 
-    @Inject(method = "releaseUsing", at = @At("HEAD"), cancellable = true)
+    @Inject(
+            method = {"releaseUsing"},
+            at = {@At("HEAD")},
+            cancellable = true
+    )
     public void modifyReleaseUsing(ItemStack p_43394_, Level p_43395_, LivingEntity p_43396_, int p_43397_, CallbackInfo ci) {
         if (p_43396_ instanceof Player player) {
-            int i = this.getUseDuration(p_43394_) - p_43397_;
+            int i = this.getUseDuration(p_43394_, p_43396_) - p_43397_;
             double headY = player.getY() + (double)1.0F;
             int standingOnY = Mth.floor(player.getY()) - 2;
             float yawRadians = (float)Math.toRadians(90.0F + player.getYRot());
@@ -94,7 +98,7 @@ public abstract class TheIncineratorMixin extends Item implements More_Tool_Attr
         } while (blockpos.getY() >= minY);
 
         if (flag) {
-            world.addFreshEntity(new Flame_Strike_Entity(world, x, blockpos.getY() + d0, z, rotation, 40, wait, delay, radius, IncineratorsTryHardConfig.basicSkillDamage.get().floatValue(), IncineratorsTryHardConfig.maxHealthDamagePercent.get().floatValue(), false, player));
+            world.addFreshEntity(new Flame_Strike_Entity(world, x, blockpos.getY() + d0, z, rotation, 40, wait, delay, radius, /*IncineratorsTryHardConfig.basicSkillDamage.get().floatValue()*/ 1000F, IncineratorsTryHardConfig.maxHealthDamagePercent.get().floatValue(), false, player));
             return true;
         } else {
             return false;
