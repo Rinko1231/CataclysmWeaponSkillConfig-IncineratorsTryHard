@@ -98,7 +98,7 @@ public abstract class TheIncineratorMixin extends Item implements RangeTool {
         } while (blockpos.getY() >= minY);
 
         if (flag) {
-            world.addFreshEntity(new Flame_Strike_Entity(world, x, blockpos.getY() + d0, z, rotation, 40, wait, delay, radius, /*IncineratorsTryHardConfig.basicSkillDamage.get().floatValue()*/ 1000F, IncineratorsTryHardConfig.maxHealthDamagePercent.get().floatValue(), false, player));
+            world.addFreshEntity(new Flame_Strike_Entity(world, x, blockpos.getY() + d0, z, rotation, 40, wait, delay, radius, IncineratorsTryHardConfig.basicSkillDamage.get().floatValue(), IncineratorsTryHardConfig.maxHealthDamagePercent.get().floatValue(), false, player));
             return true;
         } else {
             return false;
