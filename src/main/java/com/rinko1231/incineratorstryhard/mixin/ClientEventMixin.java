@@ -33,7 +33,6 @@ public abstract class ClientEventMixin {
     private static void modifyOnPreRenderEntity(RenderLivingEvent.Pre event, CallbackInfo ci) {
         LivingEntity player = event.getEntity();
         boolean usingIncinerator = player.isUsingItem() && player.getUseItem().is(ModItems.THE_INCINERATOR.get());
-//        boolean usingImmolator = player.isUsingItem() && player.getUseItem().is(ModItems.THE_IMMOLATOR.get());
         if (usingIncinerator) {
             int i = player.getTicksUsingItem();
             float f2 = (float)player.tickCount + event.getPartialTick();
@@ -54,29 +53,6 @@ public abstract class ClientEventMixin {
             drawVertex(lvt_19_1_, ivertexbuilder, 1, 0, -1, 1, 0, 1, 0, 1, 240);
             matrixStackIn.popPose();
         }
-
-//        if (usingImmolator) {
-//            int i = player.getTicksUsingItem();
-//            float f2 = (float)player.tickCount + event.getPartialTick();
-//            PoseStack matrixStackIn = event.getPoseStack();
-//            int maxChargeTime = IncineratorsTryHardConfig.chargingTimeToMaxCircleForImmolator.get(); // 新的蓄力时间上限
-//            int originalMaxTime = 45;
-//            float f3 = (float) Mth.clamp(i, 1, maxChargeTime) / maxChargeTime * originalMaxTime;
-//            matrixStackIn.pushPose();
-//            VertexConsumer ivertexbuilder = ItemRenderer.getArmorFoilBuffer(event.getMultiBufferSource(),CMRenderTypes.getGlowingEffect(FLAME_STRIKE), true);
-//            matrixStackIn.translate(0.0F, 0.001, 0.0F);
-//            matrixStackIn.scale(f3 * 0.05F, f3 * 0.05F, f3 * 0.05F);
-//            matrixStackIn.mulPose(Axis.ZP.rotationDegrees(180.0F));
-//            matrixStackIn.mulPose(Axis.YP.rotationDegrees(90.0F + f2));
-//            PoseStack.Pose lvt_19_1_ = matrixStackIn.last();
-//            Matrix4f lvt_20_1_ = lvt_19_1_.pose();
-//            Matrix3f lvt_21_1_ = lvt_19_1_.normal();
-//            this.drawVertex(lvt_20_1_, lvt_21_1_, ivertexbuilder, -1, 0, -1, 0.0F, 0.0F, 1, 0, 1, 240);
-//            this.drawVertex(lvt_20_1_, lvt_21_1_, ivertexbuilder, -1, 0, 1, 0.0F, 1.0F, 1, 0, 1, 240);
-//            this.drawVertex(lvt_20_1_, lvt_21_1_, ivertexbuilder, 1, 0, 1, 1.0F, 1.0F, 1, 0, 1, 240);
-//            this.drawVertex(lvt_20_1_, lvt_21_1_, ivertexbuilder, 1, 0, -1, 1.0F, 0.0F, 1, 0, 1, 240);
-//            matrixStackIn.popPose();
-//        }
             if (ClientHooks.blockedEntityRenders.contains(event.getEntity().getUUID())) {
                 if (!ClientHooks.isFirstPersonPlayer(event.getEntity())) {
                     NeoForge.EVENT_BUS.post(new RenderLivingEvent.Post(event.getEntity(), event.getRenderer(), event.getPartialTick(), event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight()));

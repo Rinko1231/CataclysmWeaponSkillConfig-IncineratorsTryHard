@@ -12,7 +12,7 @@ configBackground="minecraft:textures/block/bricks.png"
 [[dependencies.incineratorstryhard]] #optional
     modId="neoForge" #mandatory
     mandatory=true #mandatory
-    versionRange="[43,)" #mandatory
+    versionRange="[21.1.0,)" #mandatory
     ordering="NONE"
     side="BOTH"
 [[dependencies.incineratorstryhard]]

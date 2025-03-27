@@ -42,8 +42,6 @@ public abstract class TidalClawsMixin extends Item {
     /**
      * @author Rinko1231
      * @reason Tweak
-     *                 double maxRange = IncineratorsTryHardConfig.TidalClawsHookMaxRange.get();
-     *                 double maxSpeed = IncineratorsTryHardConfig.TidalClawsHookMaxSpeed.get();
      */
     @Overwrite
     public InteractionResultHolder<ItemStack> use(Level level, Player user, InteractionHand hand) {
@@ -68,7 +66,7 @@ public abstract class TidalClawsMixin extends Item {
     }
 
     @Inject(method = {"onLeftClick"}, at = {@At("HEAD")}, cancellable = true)
-    public boolean onLeftClickTweak(ItemStack stack, LivingEntity playerIn, CallbackInfoReturnable<Boolean> cir) {
+    public void onLeftClickTweak(ItemStack stack, LivingEntity playerIn, CallbackInfoReturnable<Boolean> cir) {
         if(stack.is(ModItems.TIDAL_CLAWS.get()) && (!(playerIn instanceof Player) || isCharged((Player)playerIn, stack))){
             Level worldIn = playerIn.level();
             Entity closestValid = null;
@@ -88,9 +86,9 @@ public abstract class TidalClawsMixin extends Item {
                     }
                 }
             }
-            return launchTendonsAt(stack, playerIn, closestValid);
+            cir.setReturnValue(launchTendonsAt(stack, playerIn, closestValid));
         }
-        return false;
+        cir.setReturnValue(false);
     }
 
 
