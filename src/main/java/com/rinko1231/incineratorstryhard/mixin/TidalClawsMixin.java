@@ -87,8 +87,9 @@ public abstract class TidalClawsMixin extends Item {
                 }
             }
             cir.setReturnValue(launchTendonsAt(stack, playerIn, closestValid));
+        } else {
+            cir.setReturnValue(false);
         }
-        cir.setReturnValue(false);
     }
 
 
