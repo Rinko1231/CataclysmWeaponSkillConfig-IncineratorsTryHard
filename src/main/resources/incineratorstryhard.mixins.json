@@ -7,8 +7,11 @@
   "mixins": [
     "BloomStonePauldronsMixin",
     "ClientEventMixin",
+    "CursedBowMixin",
+    "CursiumArmorMixin",
     "GauntletOfBulwarkMixin",
     "GauntletOfGuardMixin",
+    "LaserBeamEntityMixin",
     "TheAnnihilatorMixin",
     "TheImmolatorMixin",
     "TheIncineratorMixin",

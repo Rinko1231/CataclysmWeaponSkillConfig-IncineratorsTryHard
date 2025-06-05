@@ -42,6 +42,14 @@ public class IncineratorsTryHardConfig
     public static ForgeConfigSpec.DoubleValue gauntletOfGuardSkillRange;
     public static ForgeConfigSpec.DoubleValue getGauntletOfGuardSkillVectorScale;
 
+    public static ForgeConfigSpec.BooleanValue cursedBowEnchantmentUnlock;
+
+    public static ForgeConfigSpec.IntValue cursiumHelmetCoolDown;
+    public static ForgeConfigSpec.IntValue cursiumBootsCoolDown;
+    public static ForgeConfigSpec.DoubleValue cursiumBootsSkillSpeed;
+
+    public static ForgeConfigSpec.BooleanValue laserGatlingIgnite;
+
     static
     {
 
@@ -151,6 +159,33 @@ public class IncineratorsTryHardConfig
         getGauntletOfGuardSkillVectorScale = BUILDER
                 .defineInRange("Scale of Normalized Attraction Vector Of Gauntlet Of Bulwark", 0.1,0.01, Double.MAX_VALUE);
 
+
+        BUILDER.pop();
+
+        BUILDER.push("Cursed Bow");
+
+        cursedBowEnchantmentUnlock =BUILDER
+                .define("Whether Cursed Bow can be enchanted on Enchantment Table, and with Infinity and Flaming Arrow",true);
+
+        BUILDER.pop();
+
+        BUILDER.push("Cursium Armor");
+
+        cursiumHelmetCoolDown = BUILDER
+                .defineInRange("Skill Cooldown time (ticks) of Cursium Helmet", 200,1,Integer.MAX_VALUE);
+
+        cursiumBootsCoolDown = BUILDER
+                .defineInRange("Skill Cooldown time (ticks) of Cursium Boots", 200,1,Integer.MAX_VALUE);
+
+        cursiumBootsSkillSpeed= BUILDER
+                .defineInRange("Skill Speed of Cursium Boots", -1.800F, Double.MIN_VALUE, Double.MAX_VALUE);
+
+        BUILDER.pop();
+
+        BUILDER.push("Laser Gatling");
+
+        laserGatlingIgnite =BUILDER
+                .define("Whether Laser Gatling can ignite blocks when used by the player", true);
 
         SPEC = BUILDER.build();
     }
