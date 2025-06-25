@@ -29,7 +29,7 @@ displayName = "Cataclysm: Incinerator's Try Hard" #mandatory
 # A text field displayed in the mod UI
 # credits="" #optional
 # A text field displayed in the mod UI
-authors = "Rinko1231" #optional
+authors = "Rinko1231, rtxyd" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
 Custom the damage, ignic circle and charging time of the Incinerator, The Immolator, Tidal Claws and some other Catalysm gears!
