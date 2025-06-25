@@ -183,7 +183,7 @@ public class IncineratorsTryHardConfig
 
         GauntletOfGuardSkillVectorScale = BUILDER
                 .translation("description.cataclysm_weapon_config.gauntlet_of_guard_skill_vector_scale")
-                .defineInRange("Scale of Normalized Attraction Vector Of Gauntlet Of Bulwark", 0.1,0.01, Double.MAX_VALUE);
+                .defineInRange("Scale of Normalized Attraction Vector Of Gauntlet Of Guard", 0.1,0.01, Double.MAX_VALUE);
 
 
         BUILDER.pop();
