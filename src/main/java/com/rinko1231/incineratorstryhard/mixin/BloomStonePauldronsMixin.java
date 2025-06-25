@@ -6,6 +6,7 @@ import com.github.L_Ender.cataclysm.init.ModEntities;
 import com.github.L_Ender.cataclysm.init.ModItems;
 import com.github.L_Ender.cataclysm.items.Bloom_Stone_Pauldrons;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
+import net.minecraft.core.Holder;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -16,15 +17,14 @@ import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = Bloom_Stone_Pauldrons.class, remap = false)
 public abstract class BloomStonePauldronsMixin extends ArmorItem {
 
 
-    public BloomStonePauldronsMixin(ArmorMaterial p_40386_, Type p_266831_, Properties p_40388_) {
-        super(p_40386_, p_266831_, p_40388_);
+    public BloomStonePauldronsMixin(Holder<ArmorMaterial> material, Type type, Properties properties) {
+        super(material, type, properties);
     }
 
     @Inject(method = "onKeyPacket", at = @At("HEAD"), cancellable = true)

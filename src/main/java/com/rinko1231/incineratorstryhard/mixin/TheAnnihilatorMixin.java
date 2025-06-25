@@ -1,6 +1,6 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-import com.github.L_Ender.cataclysm.client.particle.RingParticle;
+import com.github.L_Ender.cataclysm.client.particle.Options.RingParticleOptions;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
 import com.github.L_Ender.cataclysm.items.The_Annihilator;
@@ -45,7 +45,7 @@ public abstract class TheAnnihilatorMixin extends Item {
         }
 
         if (world.isClientSide) {
-            world.addParticle(new RingParticle.RingData(0.0F, ((float)Math.PI / 2F), 30, 0.337F, 0.925F, 0.8F, 1.0F, 85.0F*radiusMul, false, RingParticle.EnumRingBehavior.GROW), caster.getX(), caster.getY() + (double)0.03F, caster.getZ(), (double)0.0F, (double)0.0F, (double)0.0F);
+            world.addParticle(new RingParticleOptions(0.0F, ((float)Math.PI / 2F), 30, 86, 236, 204, 1.0F, 85.0F, false, 0), caster.getX(), caster.getY() + (double)0.03F, caster.getZ(), (double)0.0F, (double)0.0F, (double)0.0F);
         }
 
     }
@@ -57,7 +57,7 @@ public abstract class TheAnnihilatorMixin extends Item {
     @Overwrite
     public void releaseUsing(ItemStack p_43394_, Level p_43395_, LivingEntity p_43396_, int p_43397_) {
         if (p_43396_ instanceof Player player) {
-            int i = this.getUseDuration(p_43394_) - p_43397_;
+            int i = this.getUseDuration(p_43394_, p_43396_) - p_43397_;
             if (i >= IncineratorsTryHardConfig.annihilatorChargingTime.get()) { //40
                 this.yall(p_43395_, p_43396_);
                 if (!p_43395_.isClientSide) {
@@ -74,7 +74,7 @@ public abstract class TheAnnihilatorMixin extends Item {
      */
     @Overwrite
     public void onUseTick(Level worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
-        int i = this.getUseDuration(stack) - count;
+        int i = this.getUseDuration(stack, livingEntityIn) - count;
         int iMul = IncineratorsTryHardConfig.annihilatorChargingTime.get()/40;
         if (i == 10*iMul) {
             this.masseffectParticle(worldIn, livingEntityIn, 2.0F);

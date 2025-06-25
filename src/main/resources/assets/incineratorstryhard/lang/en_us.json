@@ -1,0 +1,54 @@
+{
+  "config.incineratorstryhard.config": "Cataclysm: Weapon Skill Config",
+  "incineratorstryhard.configuration.The_Incinerator": "The Incinerator",
+  "description.cataclysm_weapon_config.incinerator_charging_time": "Charging time (ticks) of The Incinerator",
+  "description.cataclysm_weapon_config.incinerator_charging_time_to_max_circle": "(Client Only) Max Charging time (ticks) to Form the Biggest Magic Circle underfoot when charging",
+  "description.cataclysm_weapon_config.incinerator_basic_skill_damage": "Basic Damage dealt by The Incinerator's Skill",
+  "description.cataclysm_weapon_config.incinerator_max_health_damage_percent": "Max Health Damage Percentage dealt by The Incinerator's Skill",
+  "description.cataclysm_weapon_config.incinerator_ignis_circle_radius": "The Radius of the ignis circles released by The Incinerator's Skill",
+
+  "incineratorstryhard.configuration.The_Immolator": "The Immolator",
+  "description.cataclysm_weapon_config.immolator_charging_time": "Charging time (ticks) of The Immolator",
+  "description.cataclysm_weapon_config.immolator_charging_time_to_max_circle": "(Client Only) Max Charging time (ticks) to Form the Biggest Magic Circle underfoot when charging",
+  "description.cataclysm_weapon_config.immolator_basic_skill_damage": "Basic Ignis Circle Damage dealt by The Immolator's Skill",
+  "description.cataclysm_weapon_config.immolator_max_health_damage_percent": "Max Health Damage Percentage dealt by The Immolator's Skill",
+  "description.cataclysm_weapon_config.immolator_ignis_circle_radius": "The Radius of the ignis circles released by The Immolator's Skill",
+
+  "incineratorstryhard.configuration.Tidal_Claws": "Tidal Claws",
+  "description.cataclysm_weapon_config.tidal_claws_tentacle_damage": "Tentacle Damage released by Tidal Claws",
+  "description.cataclysm_weapon_config.tidal_claws_tentacle_first_range": "Tentacle's First Detection Range released by Tidal Claws",
+  "description.cataclysm_weapon_config.tidal_claws_tentacle_second_range": "Tentacle's Second Detection Range released by Tidal Claws",
+  "description.cataclysm_weapon_config.tidal_claws_hook_max_range": "Hook's Max Range released by Tidal Claws",
+  "description.cataclysm_weapon_config.tidal_claws_hook_max_speed": "Hook's Max Speed released by Tidal Claws",
+
+  "incineratorstryhard.configuration.Gauntlet_of_Bulwark": "Gauntlet_of_Bulwark",
+  "description.cataclysm_weapon_config.charging_damage_multiplier_bulwark": "Charge Damage Multiplier Of Gauntlet Of Bulwark",
+
+  "incineratorstryhard.configuration.Bloom_Stone_Pauldrons": "Bloom_Stone_Pauldrons",
+  "description.cataclysm_weapon_config.cooldown_bloom_stone_pauldrons": "Cooldown time (ticks) of Bloom Stone Pauldrons to shoot Amethyst Cluster",
+
+  "incineratorstryhard.configuration.The_Annihilator": "The_Annihilator",
+  "description.cataclysm_weapon_config.annihilator_skill_range": "Skill Range Of The Annihilator",
+  "description.cataclysm_weapon_config.annihilator_skill_damage_multiplier": "Skill Damage Multiplier Of The Annihilator",
+  "description.cataclysm_weapon_config.annihilator_charging_time": "Charging time (ticks) of The Annihilator",
+  "description.cataclysm_weapon_config.annihilator_skill_cooldown": "Skill Cooldown time (ticks) of The Annihilator",
+
+  "incineratorstryhard.configuration.Gauntlet_of_Guard": "Gauntlet_of_Guard",
+  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_range": "Attraction Radius Of Gauntlet Of Guard",
+  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_vector_scale": "Scale of Normalized Attraction Vector Of Gauntlet Of Bulwark",
+
+  "incineratorstryhard.configuration.Cursed_Bow": "Cursed_Bow",
+  "description.cataclysm_weapon_config.cursed_bow": "Whether Cursed Bow can be enchanted on Enchantment Table, and with Infinity and Flaming Arrow",
+  "description.cataclysm_weapon_config.cursed_bow_broken": "Broken by Mojang's datapack-driven enchantment system, now it is Enabled by default.",
+
+  "incineratorstryhard.configuration.Cursium_Armor": "Cursium_Armor",
+  "description.cataclysm_weapon_config.cursium_helmet_cooldown": "Skill Cooldown time (ticks) of Cursium Helmet",
+  "description.cataclysm_weapon_config.cursium_boots_cooldown": "Skill Cooldown time (ticks) of Cursium Boots",
+  "description.cataclysm_weapon_config.cursium_boots_skill_speed": "Skill Speed of Cursium Boots",
+
+  "incineratorstryhard.configuration.Ignitium_Armor": "Cursium_Armor",
+  "description.cataclysm_weapon_config.ignitium_helmet_cooldown": "Skill Cooldown time (ticks) of Ignitium Helmet",
+
+  "incineratorstryhard.configuration.Laser_Gatling": "Laser_Gatling",
+  "description.cataclysm_weapon_config.laser_gatling_ignite": "Whether Laser Gatling can ignite blocks when used by the player"
+}

@@ -11,6 +11,7 @@
     "CursiumArmorMixin",
     "GauntletOfBulwarkMixin",
     "GauntletOfGuardMixin",
+    "IgnitiumArmorMixin",
     "LaserBeamEntityMixin",
     "TheAnnihilatorMixin",
     "TheImmolatorMixin",

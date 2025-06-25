@@ -4,29 +4,28 @@ package com.rinko1231.incineratorstryhard.mixin;
 import com.github.L_Ender.cataclysm.config.CMConfig;
 import com.github.L_Ender.cataclysm.entity.projectile.Phantom_Arrow_Entity;
 import com.github.L_Ender.cataclysm.items.Cursed_bow;
-import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
+import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
+
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.ForgeEventFactory;
+
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static com.github.L_Ender.cataclysm.items.Cursed_bow.getPowerForTime;
+import java.util.List;
 
 @Mixin(value = Cursed_bow.class, remap = false)
 public abstract class CursedBowMixin extends ProjectileWeaponItem {
@@ -35,17 +34,97 @@ public abstract class CursedBowMixin extends ProjectileWeaponItem {
         super(p_43009_);
     }
 
+
+    @Inject(method = "shoot", at= @At("HEAD"),cancellable = true)
+    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, Entity target, CallbackInfo ci) {
+        float f = EnchantmentHelper.processProjectileSpread(level, weapon, shooter, 0.0F);
+        float f1 = projectileItems.size() == 1 ? 0.0F : 2.0F * f / (float)(projectileItems.size() - 1);
+        float f2 = (float)((projectileItems.size() - 1) % 2) * f1 / 2.0F;
+        float f3 = 1.0F;
+
+        for(int i = 0; i < projectileItems.size(); ++i) {
+            ItemStack itemstack = (ItemStack)projectileItems.get(i);
+            if (!itemstack.isEmpty()) {
+                boolean hommingArrows = itemstack.is(Items.ARROW);
+                int arrowcount = itemstack.is(Items.ARROW) ? 3 : 2;
+                float offsetangle = itemstack.is(Items.ARROW) ? 12.0F : 3.0F;
+                boolean flag1 = shooter.hasInfiniteMaterials() || itemstack.getItem() instanceof ArrowItem && ((ArrowItem)itemstack.getItem()).isInfinite(itemstack, weapon, shooter);
+
+                for(int j = 0; j < arrowcount; ++j) {
+                    AbstractArrow abstractarrow = this.createArrow(level, shooter, weapon, itemstack, isCrit);
+                    abstractarrow = this._1211$customArrow(abstractarrow);
+                    if (hommingArrows) {
+                        label71: {
+                            if (target instanceof LivingEntity) {
+                                LivingEntity tango = (LivingEntity)target;
+                                if (!target.isAlliedTo(shooter)) {
+                                    Phantom_Arrow_Entity hommingArrowEntity = new Phantom_Arrow_Entity(level, shooter, tango);
+                                    hommingArrowEntity.setBaseDamage(CMConfig.PlayerPhantomArrowbasedamage * (double)velocity);
+                                    abstractarrow = hommingArrowEntity;
+                                    break label71;
+                                }
+                            }
+
+                            Phantom_Arrow_Entity hommingArrowEntity = new Phantom_Arrow_Entity(level, shooter);
+                            hommingArrowEntity.setBaseDamage(CMConfig.PlayerPhantomArrowbasedamage * (double)velocity);
+                            abstractarrow = hommingArrowEntity;
+                        }
+                    } else {
+                        abstractarrow.setBaseDamage(abstractarrow.getBaseDamage() + (double)0.5F);
+                    }
+
+
+                    if (j != 1 || _1211$infinity(shooter,weapon)) {//避免无限附魔刷箭
+                        abstractarrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                    } else if (flag1 || shooter.hasInfiniteMaterials() && (itemstack.getItem() == Items.SPECTRAL_ARROW || itemstack.getItem() == Items.TIPPED_ARROW)) {
+                        abstractarrow.pickup = AbstractArrow.Pickup.ALLOWED;
+                    }
+
+
+                    abstractarrow.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot() + ((float)j - (float)(arrowcount - 1) / 2.0F) * offsetangle, 0.0F, velocity * 3.0F, inaccuracy);
+                    if (f == 1.0F) {
+                        abstractarrow.setCritArrow(true);
+                    }
+
+                    level.addFreshEntity(abstractarrow);
+                    if (weapon.isEmpty()) {
+                        break;
+                    }
+                }
+            }
+        }
+     ci.cancel();
+    }
+  @Shadow protected abstract AbstractArrow createArrow(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit) ;
+
+    @Unique
+    public AbstractArrow _1211$customArrow(AbstractArrow arrow) {
+        return arrow;
+    }
+
+    @Unique
+    public boolean _1211$infinity(LivingEntity player, ItemStack weapon) {
+        Holder<Enchantment> infinity = _1211$getHolder(player.level(), Enchantments.INFINITY);
+        int level = EnchantmentHelper.getTagEnchantmentLevel(infinity, weapon);
+    return level>0;
+    }
+
+    @Unique
+    private static Holder<Enchantment> _1211$getHolder(Level level, ResourceKey<Enchantment> enchantment) {
+        return level.holderLookup(enchantment.registryKey()).getOrThrow(enchantment);
+    }
+
+
+/*
+//Mojang玩数据驱动导致的
     @Inject(method = "canApplyAtEnchantingTable", at = @At("HEAD"), cancellable = true)
     public void canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment, CallbackInfoReturnable<Boolean> cir) {
         if (IncineratorsTryHardConfig.cursedBowEnchantmentUnlock.get())
           cir.setReturnValue(enchantment.category == EnchantmentCategory.BOW);
     }
+*/
 
-
-    /**
-     * @author Rinko1231
-     * @reason Long
-     */
+    /*
     @Overwrite
     public void releaseUsing(ItemStack stack, Level level, LivingEntity living, int timeleft) {
         if (living instanceof Player player) {
@@ -154,10 +233,8 @@ public abstract class CursedBowMixin extends ProjectileWeaponItem {
             }
         }
 
-    }
+    }*/
 
-    @Shadow protected abstract Entity getPlayerLookTarget(Level level, LivingEntity living);
-    @Shadow public abstract AbstractArrow customArrow(AbstractArrow arrow);
-    @Shadow public abstract int getUseDuration(ItemStack stack);
+
 
 }

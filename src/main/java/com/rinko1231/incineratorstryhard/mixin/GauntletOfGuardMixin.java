@@ -31,7 +31,7 @@ public abstract class GauntletOfGuardMixin extends Item {
         for(LivingEntity entity : world.getEntitiesOfClass(LivingEntity.class, livingEntityIn.getBoundingBox().inflate(radius))) {
             if (!(entity instanceof Player) || !((Player)entity).getAbilities().invulnerable) {
                 Vec3 diff = entity.position().subtract(livingEntityIn.position().add((double)0.0F, (double)0.0F, (double)0.0F));
-                diff = diff.normalize().scale(IncineratorsTryHardConfig.getGauntletOfGuardSkillVectorScale.get());
+                diff = diff.normalize().scale(IncineratorsTryHardConfig.GauntletOfGuardSkillVectorScale.get());
                 entity.setDeltaMovement(entity.getDeltaMovement().subtract(diff));
             }
         }

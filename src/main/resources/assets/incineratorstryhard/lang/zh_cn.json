@@ -1,0 +1,54 @@
+{
+  "config.incineratorstryhard.config": "灾变：冒火的剑",
+  "incineratorstryhard.configuration.The_Incinerator": "炎葬",
+  "description.cataclysm_weapon_config.incinerator_charging_time": "炎葬的充能时间（tick）",
+  "description.cataclysm_weapon_config.incinerator_charging_time_to_max_circle": "（仅客户端）充能时脚下生成最大魔法阵所需的最大充能时间（tick）",
+  "description.cataclysm_weapon_config.incinerator_basic_skill_damage": "炎葬技能造成的基础伤害",
+  "description.cataclysm_weapon_config.incinerator_max_health_damage_percent": "炎葬技能造成的最大生命值百分比伤害",
+  "description.cataclysm_weapon_config.incinerator_ignis_circle_radius": "炎葬技能释放的烈焰魔法阵半径",
+
+  "incineratorstryhard.configuration.The_Immolator": "献祭者",
+  "description.cataclysm_weapon_config.immolator_charging_time": "献祭者的充能时间（tick）",
+  "description.cataclysm_weapon_config.immolator_charging_time_to_max_circle": "（仅客户端）充能时脚下生成最大魔法阵所需的最大充能时间（tick）",
+  "description.cataclysm_weapon_config.immolator_basic_skill_damage": "献祭者技能造成的烈焰魔法阵基础伤害",
+  "description.cataclysm_weapon_config.immolator_max_health_damage_percent": "献祭者技能造成的最大生命值百分比伤害",
+  "description.cataclysm_weapon_config.immolator_ignis_circle_radius": "献祭者技能释放的烈焰魔法阵半径",
+
+  "incineratorstryhard.configuration.Tidal_Claws": "潮汐利爪",
+  "description.cataclysm_weapon_config.tidal_claws_tentacle_damage": "潮汐利爪释放的触手伤害",
+  "description.cataclysm_weapon_config.tidal_claws_tentacle_first_range": "潮汐利爪释放的触手的第一探测范围",
+  "description.cataclysm_weapon_config.tidal_claws_tentacle_second_range": "潮汐利爪释放的触手的第二探测范围",
+  "description.cataclysm_weapon_config.tidal_claws_hook_max_range": "潮汐利爪释放的钩爪最大距离",
+  "description.cataclysm_weapon_config.tidal_claws_hook_max_speed": "潮汐利爪释放的钩爪最大速度",
+
+  "incineratorstryhard.configuration.Gauntlet_of_Bulwark": "壁垒护手",
+  "description.cataclysm_weapon_config.charging_damage_multiplier_bulwark": "壁垒护手的充能伤害倍率",
+
+  "incineratorstryhard.configuration.Bloom_Stone_Pauldrons": "花岩肩甲",
+  "description.cataclysm_weapon_config.cooldown_bloom_stone_pauldrons": "花岩肩甲主动技的冷却时间（tick）",
+
+  "incineratorstryhard.configuration.The_Annihilator": "歼灭战锤",
+  "description.cataclysm_weapon_config.annihilator_skill_range": "歼灭战锤技能范围",
+  "description.cataclysm_weapon_config.annihilator_skill_damage_multiplier": "歼灭战锤技能伤害倍率",
+  "description.cataclysm_weapon_config.annihilator_charging_time": "歼灭战锤充能时间（tick）",
+  "description.cataclysm_weapon_config.annihilator_skill_cooldown": "歼灭战锤技能冷却时间（tick）",
+
+  "incineratorstryhard.configuration.Gauntlet_of_Guard": "守卫者护手",
+  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_range": "守卫者护手的吸引半径",
+  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_vector_scale": "壁垒护手吸引向量的模",
+
+  "incineratorstryhard.configuration.Cursed_Bow": "咒魂弓",
+  "description.cataclysm_weapon_config.cursed_bow": "咒魂弓是否可以在附魔台附魔，以及是否兼容无限与火矢",
+  "description.cataclysm_weapon_config.cursed_bow_broken": "默认已启用，由于 Mojang 把附魔机制改为数据包驱动，该配置项现已无效，你需要修改数据包以关闭",
+
+  "incineratorstryhard.configuration.Cursium_Armor": "咒魂套装",
+  "description.cataclysm_weapon_config.cursium_helmet_cooldown": "咒魂头盔技能冷却时间（tick）",
+  "description.cataclysm_weapon_config.cursium_boots_cooldown": "咒魂靴子技能冷却时间（tick）",
+  "description.cataclysm_weapon_config.cursium_boots_skill_speed": "咒魂靴子技能速度",
+
+  "incineratorstryhard.configuration.Ignitium_Armor": "腾炎套装",
+  "description.cataclysm_weapon_config.ignitium_helmet_cooldown": "腾炎头盔技能冷却时间（tick）",
+
+  "incineratorstryhard.configuration.Laser_Gatling": "激光加特林",
+  "description.cataclysm_weapon_config.laser_gatling_ignite": "激光加特林是否可以点燃方块（玩家使用时）"
+}

@@ -21,7 +21,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,9 +34,6 @@ public abstract class TheImmolatorMixin extends Item {
         super(p_41383_);
     }
 
-    @Shadow
-    public abstract int getUseDuration(@NotNull ItemStack p_77626_1_);
-
     /**
      * @author Rinko1231
      * @reason Tweak
@@ -45,7 +41,7 @@ public abstract class TheImmolatorMixin extends Item {
     @Overwrite
     public void releaseUsing(ItemStack p_43394_, Level p_43395_, LivingEntity p_43396_, int p_43397_) {
         if (p_43396_ instanceof Player player) {
-            int i = this.getUseDuration(p_43394_) - p_43397_;
+            int i = this.getUseDuration(p_43394_, p_43396_) - p_43397_;
             boolean hasSucceeded = false;
             double headY = player.getY() + (double)1.0F;
             int standingOnY = Mth.floor(player.getY()) - 2;
@@ -109,7 +105,7 @@ private boolean ba_painting$spawnFlameStrike(double x, double z, double minY, do
  */
 @Overwrite
 public void onUseTick(Level worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
-    int i = this.getUseDuration(stack) - count;
+    int i = this.getUseDuration(stack, livingEntityIn) - count;
     int iMul = IncineratorsTryHardConfig.chargingTimeForImmolator.get()/45;
     if (i == 10*iMul) {
         this.masseffectParticle(worldIn, livingEntityIn, 2.0F);

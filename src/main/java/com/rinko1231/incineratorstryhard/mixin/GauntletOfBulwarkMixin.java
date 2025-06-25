@@ -2,9 +2,10 @@ package com.rinko1231.incineratorstryhard.mixin;
 
 
 
-import com.github.L_Ender.cataclysm.capabilities.ChargeCapability;
+import com.github.L_Ender.cataclysm.Attachment.ChargeAttachment;
 import com.github.L_Ender.cataclysm.config.CMConfig;
-import com.github.L_Ender.cataclysm.init.ModCapabilities;
+
+import com.github.L_Ender.cataclysm.init.ModDataAttachments;
 import com.github.L_Ender.cataclysm.items.Gauntlet_of_Bulwark;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
 import net.minecraft.util.Mth;
@@ -15,9 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -30,13 +29,10 @@ public abstract class GauntletOfBulwarkMixin extends Item {
         super(p_41383_);
     }
 
-    @Shadow
-    public abstract int getUseDuration(@NotNull ItemStack p_77626_1_);
-
     @Inject(method = "releaseUsing", at = @At("HEAD"), cancellable = true)
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft, CallbackInfo ci) {
         if (!entityLiving.isShiftKeyDown() && !entityLiving.isFallFlying()) {
-            int i = this.getUseDuration(stack) - timeLeft;
+            int i = this.getUseDuration(stack, entityLiving) - timeLeft;
             int t = Mth.clamp(i, 1, 5);
             float f7 = entityLiving.getYRot();
             float f = entityLiving.getXRot();
@@ -54,16 +50,16 @@ public abstract class GauntletOfBulwarkMixin extends Item {
                     entityLiving.move(MoverType.SELF, new Vec3((double)0.0F, (double)f6 / (double)2.0F, (double)0.0F));
                 }
 
-                ChargeCapability.IChargeCapability ChargeCapability = (ChargeCapability.IChargeCapability) ModCapabilities.getCapability(entityLiving, ModCapabilities.CHARGE_CAPABILITY);
-                if (ChargeCapability != null) {
-                    ChargeCapability.setCharge(true);
-                    ChargeCapability.setTimer(t * 2);
-                    ChargeCapability.seteffectiveChargeTime(t * 2);
-                    ChargeCapability.setknockbackSpeedIndex((float)t * 0.35F);
-                    ChargeCapability.setdamagePerEffectiveCharge(IncineratorsTryHardConfig.ChargeDamageMultiplierOfGauntletOfBulwark.get().floatValue());
-                    ChargeCapability.setdx(f1 * 0.5F);
-                    ChargeCapability.setdZ(f3 * 0.5F);
-                }
+                ChargeAttachment charge = (ChargeAttachment)entityLiving.getData(ModDataAttachments.CHARGE_ATTACHMENT);
+                charge.setCharge(true);
+                charge.setTimer(t * 2);
+                charge.seteffectiveChargeTime(t * 2);
+                charge.setknockbackSpeedIndex((float)t * 0.35F);
+                charge.setdamagePerEffectiveCharge(1.2F);
+                    charge.setdamagePerEffectiveCharge(IncineratorsTryHardConfig.ChargeDamageMultiplierOfGauntletOfBulwark.get().floatValue());
+                    charge.setdx(f1 * 0.5F);
+                    charge.setdZ(f3 * 0.5F);
+
 
                 if (!level.isClientSide) {
                     ((Player)entityLiving).getCooldowns().addCooldown(this, CMConfig.GauntletOfBulwarkCooldown);

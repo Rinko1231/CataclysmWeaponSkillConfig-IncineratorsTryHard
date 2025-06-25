@@ -1,16 +1,15 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-import com.github.L_Ender.cataclysm.capabilities.HookCapability;
+
 import com.github.L_Ender.cataclysm.entity.projectile.Tidal_Hook_Entity;
-import com.github.L_Ender.cataclysm.init.ModCapabilities;
-import com.github.L_Ender.cataclysm.init.ModEntities;
+
+import com.github.L_Ender.cataclysm.init.ModDataAttachments;
 import com.github.L_Ender.cataclysm.init.ModItems;
 import com.github.L_Ender.cataclysm.items.Tidal_Claws;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
@@ -49,20 +48,17 @@ public abstract class TidalClawsMixin extends Item {
     @Overwrite
     public InteractionResultHolder<ItemStack> use(Level level, Player user, InteractionHand hand) {
         ItemStack stack = user.getItemInHand(hand);
-        HookCapability.IHookCapability hookCapability = (HookCapability.IHookCapability) ModCapabilities.getCapability(user, ModCapabilities.HOOK_CAPABILITY);
-        if (hookCapability != null) {
-            if (!level.isClientSide && !hookCapability.hasHook()) {
-                //user.displayClientMessage(Component.literal("Yes Mixin"), true);
+        boolean flag = (Boolean)user.getData(ModDataAttachments.HOOK_FALLING);
+        if (!level.isClientSide && !flag) {
                 double maxRange = IncineratorsTryHardConfig.TidalClawsHookMaxRange.get();
                 double maxSpeed = IncineratorsTryHardConfig.TidalClawsHookMaxSpeed.get();
-                Tidal_Hook_Entity hookshot = new Tidal_Hook_Entity((EntityType) ModEntities.TIDAL_HOOK.get(), user, level);
-                hookshot.setProperties(stack, maxRange, maxSpeed, user.getXRot(), user.getYRot(), 0.0F, 1.5F * (float)(maxSpeed / (double)10.0F));
-                level.addFreshEntity(hookshot);
-            }
-
-            user.startUsingItem(hand);
-            hookCapability.setHasHook(true);
+            Tidal_Hook_Entity hookshot = new Tidal_Hook_Entity(level, user, ItemStack.EMPTY);
+            hookshot.setProperties(stack, maxRange, maxSpeed, user.getXRot(), user.getYRot(), 0.0F, 1.5F * (float)(maxSpeed / (double)10.0F));
+            level.addFreshEntity(hookshot);
         }
+
+        user.startUsingItem(hand);
+        user.setData(ModDataAttachments.HOOK_FALLING, true);
         return (super.use(level, user, hand));
     }
 
