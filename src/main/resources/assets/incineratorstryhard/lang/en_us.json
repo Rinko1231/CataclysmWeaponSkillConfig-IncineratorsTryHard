@@ -35,7 +35,7 @@
 
   "incineratorstryhard.configuration.Gauntlet_of_Guard": "Gauntlet_of_Guard",
   "description.cataclysm_weapon_config.gauntlet_of_guard_skill_range": "Attraction Radius Of Gauntlet Of Guard",
-  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_vector_scale": "Scale of Normalized Attraction Vector Of Gauntlet Of Bulwark",
+  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_vector_scale": "Scale of Normalized Attraction Vector Of Gauntlet Of Guard",
 
   "incineratorstryhard.configuration.Cursed_Bow": "Cursed_Bow",
   "description.cataclysm_weapon_config.cursed_bow": "Whether Cursed Bow can be enchanted on Enchantment Table, and with Infinity and Flaming Arrow",

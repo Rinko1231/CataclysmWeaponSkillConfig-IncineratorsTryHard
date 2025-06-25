@@ -35,7 +35,7 @@
 
   "incineratorstryhard.configuration.Gauntlet_of_Guard": "守卫者护手",
   "description.cataclysm_weapon_config.gauntlet_of_guard_skill_range": "守卫者护手的吸引半径",
-  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_vector_scale": "壁垒护手吸引向量的模",
+  "description.cataclysm_weapon_config.gauntlet_of_guard_skill_vector_scale": "守卫者吸引向量的模",
 
   "incineratorstryhard.configuration.Cursed_Bow": "咒魂弓",
   "description.cataclysm_weapon_config.cursed_bow": "咒魂弓是否可以在附魔台附魔，以及是否兼容无限与火矢",
