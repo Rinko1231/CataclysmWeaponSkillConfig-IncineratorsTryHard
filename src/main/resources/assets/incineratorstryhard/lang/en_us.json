@@ -49,6 +49,19 @@
   "incineratorstryhard.configuration.Ignitium_Armor": "Cursium_Armor",
   "description.cataclysm_weapon_config.ignitium_helmet_cooldown": "Skill Cooldown time (ticks) of Ignitium Helmet",
 
+  "incineratorstryhard.configuration.Ceraunus": "Ceraunus",
+  "description.cataclysm_weapon_config.ceraunus_charging_time": "Ceraunus Charging Time (Seconds)",
+  "description.cataclysm_weapon_config.ceraunus_number_of_waves": "Number Of Ceraunus Waves",
+  "description.cataclysm_weapon_config.ceraunus_life_of_waves": "Life Time (ticks) Of Ceraunus Waves",
+  "description.cataclysm_weapon_config.ceraunus_thrown_velocity": "Velocity of Thrown Ceraunus",
+
+  "incineratorstryhard.configuration.Astrape": "Astrape: This configuration option is currently unused because Mr. Lender hasn't finished this part yet",
+  "description.cataclysm_weapon_config.astrape_charging_time": "Astrape Charging Time (Seconds)",
+  "description.cataclysm_weapon_config.astrape_cooldown": "Cooldown (ticks) Of Astrape Lightning",
+  "description.cataclysm_weapon_config.astrape_acceleration_power": "Astrape Lightning Acceleration Power",
+  "description.cataclysm_weapon_config.astrape_area_damage": "Astrape Lightning Area Damage",
+  "description.cataclysm_weapon_config.astrape_area_radius": "Astrape Lightning Area Radius",
+
   "incineratorstryhard.configuration.Laser_Gatling": "Laser_Gatling",
   "description.cataclysm_weapon_config.laser_gatling_ignite": "Whether Laser Gatling can ignite blocks when used by the player"
 }

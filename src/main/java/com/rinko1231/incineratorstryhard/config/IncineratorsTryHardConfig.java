@@ -50,6 +50,18 @@ public class IncineratorsTryHardConfig
 
     public static ModConfigSpec.IntValue ignitiumHelmetCoolDown;
 
+
+    public static ModConfigSpec.DoubleValue ceraunusChargingTime;
+    public static ModConfigSpec.IntValue ceraunusNumberOfWaves;
+    public static ModConfigSpec.IntValue ceraunusLifeOfWaves;
+    public static ModConfigSpec.DoubleValue ceraunusThrownVelocity;
+
+    public static ModConfigSpec.DoubleValue astrapeChargingTime;
+    public static ModConfigSpec.IntValue astrapeCooldown;
+    public static ModConfigSpec.DoubleValue astrapeAccelerationPower;
+    public static ModConfigSpec.DoubleValue astrapeAreaDamage;
+    public static ModConfigSpec.DoubleValue astrapeAreaRadius;
+
     public static ModConfigSpec.BooleanValue laserGatlingIgnite;
 
     static
@@ -218,6 +230,42 @@ public class IncineratorsTryHardConfig
         ignitiumHelmetCoolDown = BUILDER
                 .translation("description.cataclysm_weapon_config.ignitium_helmet_cooldown")
                 .defineInRange("Skill Cooldown time (ticks) of Ignitium Helmet", 300,1,Integer.MAX_VALUE);
+
+        BUILDER.pop();
+
+        BUILDER.push("Ceraunus");
+
+        ceraunusChargingTime = BUILDER
+                .translation("description.cataclysm_weapon_config.ceraunus_charging_time")
+                .defineInRange("Ceraunus Charging Time (Seconds)",0.5,0.05,10);
+        ceraunusNumberOfWaves = BUILDER
+                .translation("description.cataclysm_weapon_config.ceraunus_number_of_waves")
+                .defineInRange("Number Of Ceraunus Waves",4,1,360);
+        ceraunusLifeOfWaves = BUILDER
+                .translation("description.cataclysm_weapon_config.ceraunus_life_of_waves")
+                .defineInRange("Life Time (ticks) Of Ceraunus Waves",60,1,3600);
+        ceraunusThrownVelocity = BUILDER
+                .translation("description.cataclysm_weapon_config.ceraunus_thrown_velocity")
+                .defineInRange("Velocity of Thrown Ceraunus",2.5f,0.01,15.0f);
+/*
+        BUILDER.pop();
+
+        BUILDER.push("Astrape");
+        astrapeChargingTime = BUILDER
+                .translation("description.cataclysm_weapon_config.astrape_charging_time")
+                .defineInRange("Astrape Charging Time (Seconds)",0.5,0.05,10);
+        astrapeCooldown = BUILDER
+                .translation("description.cataclysm_weapon_config.astrape_cooldown")
+                .defineInRange("Cooldown (ticks) Of Astrape Lightning",50,1,Integer.MAX_VALUE);
+        astrapeAccelerationPower = BUILDER
+                .translation("description.cataclysm_weapon_config.astrape_acceleration_power")
+                .defineInRange("Astrape Lightning Acceleration Power",0.15,0.01,114514);
+        astrapeAreaDamage = BUILDER
+                .translation("description.cataclysm_weapon_config.astrape_area_damage")
+                .defineInRange("Astrape Lightning Area Damage",3.0F,0,Double.MAX_VALUE);
+        astrapeAreaRadius = BUILDER
+                .translation("description.cataclysm_weapon_config.astrape_area_radius")
+                .defineInRange("Astrape Lightning Area Radius",1.0F,0,256);*/
 
         BUILDER.pop();
 

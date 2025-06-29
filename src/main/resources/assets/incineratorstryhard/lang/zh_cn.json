@@ -49,6 +49,19 @@
   "incineratorstryhard.configuration.Ignitium_Armor": "腾炎套装",
   "description.cataclysm_weapon_config.ignitium_helmet_cooldown": "腾炎头盔技能冷却时间（tick）",
 
+  "incineratorstryhard.configuration.Ceraunus": "霆浪锚戟",
+  "description.cataclysm_weapon_config.ceraunus_charging_time": "霆浪锚戟蓄力时间（秒）",
+  "description.cataclysm_weapon_config.ceraunus_number_of_waves": "霆浪锚戟召唤波浪数",
+  "description.cataclysm_weapon_config.ceraunus_life_of_waves": "霆浪锚戟召唤波浪存在时间（tick）",
+  "description.cataclysm_weapon_config.ceraunus_thrown_velocity": "被投掷的霆浪锚戟速度",
+
+  "incineratorstryhard.configuration.Astrape": "神怒长槊：此处配置项暂时无用，因为lender没写完这部分",
+  "description.cataclysm_weapon_config.astrape_charging_time": "神怒长槊蓄力时间（秒）",
+  "description.cataclysm_weapon_config.astrape_cooldown": "神怒长槊发射鸣雷槊冷却时间（tick）",
+  "description.cataclysm_weapon_config.astrape_acceleration_power": "神怒长槊发射鸣雷槊加速度",
+  "description.cataclysm_weapon_config.astrape_area_damage": "鸣雷槊形成静电场伤害",
+  "description.cataclysm_weapon_config.astrape_area_radius": "鸣雷槊形成静电场半径",
+
   "incineratorstryhard.configuration.Laser_Gatling": "激光加特林",
   "description.cataclysm_weapon_config.laser_gatling_ignite": "激光加特林是否可以点燃方块（玩家使用时）"
 }
