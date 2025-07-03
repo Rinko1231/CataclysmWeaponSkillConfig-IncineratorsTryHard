@@ -57,9 +57,9 @@ public class IncineratorsTryHardConfig
     public static ModConfigSpec.DoubleValue ceraunusThrownVelocity;
 
     public static ModConfigSpec.DoubleValue astrapeChargingTime;
-    public static ModConfigSpec.IntValue astrapeCooldown;
+    //public static ModConfigSpec.IntValue astrapeCooldown;
     public static ModConfigSpec.DoubleValue astrapeAccelerationPower;
-    public static ModConfigSpec.DoubleValue astrapeAreaDamage;
+    //public static ModConfigSpec.DoubleValue astrapeAreaDamage;
     public static ModConfigSpec.DoubleValue astrapeAreaRadius;
 
     public static ModConfigSpec.BooleanValue laserGatlingIgnite;
@@ -247,25 +247,25 @@ public class IncineratorsTryHardConfig
         ceraunusThrownVelocity = BUILDER
                 .translation("description.cataclysm_weapon_config.ceraunus_thrown_velocity")
                 .defineInRange("Velocity of Thrown Ceraunus",2.5f,0.01,15.0f);
-/*
+
         BUILDER.pop();
 
         BUILDER.push("Astrape");
         astrapeChargingTime = BUILDER
                 .translation("description.cataclysm_weapon_config.astrape_charging_time")
                 .defineInRange("Astrape Charging Time (Seconds)",0.5,0.05,10);
-        astrapeCooldown = BUILDER
-                .translation("description.cataclysm_weapon_config.astrape_cooldown")
-                .defineInRange("Cooldown (ticks) Of Astrape Lightning",50,1,Integer.MAX_VALUE);
+        //astrapeCooldown = BUILDER
+        //        .translation("description.cataclysm_weapon_config.astrape_cooldown")
+        //        .defineInRange("Cooldown (ticks) Of Astrape Lightning",50,1,Integer.MAX_VALUE);
         astrapeAccelerationPower = BUILDER
                 .translation("description.cataclysm_weapon_config.astrape_acceleration_power")
                 .defineInRange("Astrape Lightning Acceleration Power",0.15,0.01,114514);
-        astrapeAreaDamage = BUILDER
-                .translation("description.cataclysm_weapon_config.astrape_area_damage")
-                .defineInRange("Astrape Lightning Area Damage",3.0F,0,Double.MAX_VALUE);
+        //astrapeAreaDamage = BUILDER
+        //        .translation("description.cataclysm_weapon_config.astrape_area_damage")
+        //        .defineInRange("Astrape Lightning Area Damage",3.0F,0,Double.MAX_VALUE);
         astrapeAreaRadius = BUILDER
                 .translation("description.cataclysm_weapon_config.astrape_area_radius")
-                .defineInRange("Astrape Lightning Area Radius",1.0F,0,256);*/
+                .defineInRange("Astrape Lightning Area Radius",1.0F,0,256);
 
         BUILDER.pop();
 

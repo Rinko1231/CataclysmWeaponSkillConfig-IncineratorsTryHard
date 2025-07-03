@@ -15,6 +15,7 @@
     "GauntletOfGuardMixin",
     "IgnitiumArmorMixin",
     "LaserBeamEntityMixin",
+    "NoGrassMixin",
     "TheAnnihilatorMixin",
     "TheImmolatorMixin",
     "TheIncineratorMixin",

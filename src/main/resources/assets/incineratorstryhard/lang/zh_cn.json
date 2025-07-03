@@ -55,7 +55,7 @@
   "description.cataclysm_weapon_config.ceraunus_life_of_waves": "霆浪锚戟召唤波浪存在时间（tick）",
   "description.cataclysm_weapon_config.ceraunus_thrown_velocity": "被投掷的霆浪锚戟速度",
 
-  "incineratorstryhard.configuration.Astrape": "神怒长槊：此处配置项暂时无用，因为lender没写完这部分",
+  "incineratorstryhard.configuration.Astrape": "神怒长槊",
   "description.cataclysm_weapon_config.astrape_charging_time": "神怒长槊蓄力时间（秒）",
   "description.cataclysm_weapon_config.astrape_cooldown": "神怒长槊发射鸣雷槊冷却时间（tick）",
   "description.cataclysm_weapon_config.astrape_acceleration_power": "神怒长槊发射鸣雷槊加速度",

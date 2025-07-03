@@ -55,7 +55,7 @@
   "description.cataclysm_weapon_config.ceraunus_life_of_waves": "Life Time (ticks) Of Ceraunus Waves",
   "description.cataclysm_weapon_config.ceraunus_thrown_velocity": "Velocity of Thrown Ceraunus",
 
-  "incineratorstryhard.configuration.Astrape": "Astrape: This configuration option is currently unused because Mr. Lender hasn't finished this part yet",
+  "incineratorstryhard.configuration.Astrape": "Astrape",
   "description.cataclysm_weapon_config.astrape_charging_time": "Astrape Charging Time (Seconds)",
   "description.cataclysm_weapon_config.astrape_cooldown": "Cooldown (ticks) Of Astrape Lightning",
   "description.cataclysm_weapon_config.astrape_acceleration_power": "Astrape Lightning Acceleration Power",
