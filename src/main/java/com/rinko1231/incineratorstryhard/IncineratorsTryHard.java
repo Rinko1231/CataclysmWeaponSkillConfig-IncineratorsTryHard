@@ -17,4 +17,5 @@ public class IncineratorsTryHard
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+
 }
