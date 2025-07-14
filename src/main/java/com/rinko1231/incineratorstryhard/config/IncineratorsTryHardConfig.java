@@ -63,6 +63,7 @@ public class IncineratorsTryHardConfig
     public static ModConfigSpec.DoubleValue astrapeAreaRadius;
 
     public static ModConfigSpec.BooleanValue laserGatlingIgnite;
+    public static ModConfigSpec.DoubleValue laserSpeedMultiplier;
 
     static
     {
@@ -274,6 +275,10 @@ public class IncineratorsTryHardConfig
         laserGatlingIgnite =BUILDER
                 .translation("description.cataclysm_weapon_config.laser_gatling_ignite")
                 .define("Whether Laser Gatling can ignite blocks when used by the player", true);
+
+        laserSpeedMultiplier = BUILDER
+                .translation("description.cataclysm_weapon_config.laser_gatling_speed")
+                .defineInRange("Laser Speed Multiplier", 1.0F, 0.01, 100.0);
 
         SPEC = BUILDER.build();
     }

@@ -63,5 +63,6 @@
   "description.cataclysm_weapon_config.astrape_area_radius": "鸣雷槊形成静电场半径",
 
   "incineratorstryhard.configuration.Laser_Gatling": "激光加特林",
-  "description.cataclysm_weapon_config.laser_gatling_ignite": "激光加特林是否可以点燃方块（玩家使用时）"
+  "description.cataclysm_weapon_config.laser_gatling_ignite": "激光加特林是否可以点燃方块（玩家使用时）",
+  "description.cataclysm_weapon_config.laser_gatling_speed": "激光束速度系数，只有有主且非先驱者发射激光束会被影响"
 }

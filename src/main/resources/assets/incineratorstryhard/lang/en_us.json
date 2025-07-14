@@ -63,5 +63,6 @@
   "description.cataclysm_weapon_config.astrape_area_radius": "Astrape Lightning Area Radius",
 
   "incineratorstryhard.configuration.Laser_Gatling": "Laser_Gatling",
-  "description.cataclysm_weapon_config.laser_gatling_ignite": "Whether Laser Gatling can ignite blocks when used by the player"
+  "description.cataclysm_weapon_config.laser_gatling_ignite": "Whether Laser Gatling can ignite blocks when used by the player",
+  "description.cataclysm_weapon_config.laser_gatling_speed": "This controls the speed multiplier of laser beam entities.This only affects lasers that have an owner and are NOT fired by The Harbinger."
 }
