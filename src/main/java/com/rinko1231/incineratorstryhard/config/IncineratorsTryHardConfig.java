@@ -33,6 +33,7 @@ public class IncineratorsTryHardConfig
     public static ForgeConfigSpec.DoubleValue ChargeDamageMultiplierOfGauntletOfBulwark;
 
     public static ForgeConfigSpec.IntValue coolDownForBloomStonePauldrons;
+    public static ForgeConfigSpec.DoubleValue damageForBloomStonePauldrons;
 
     public static ForgeConfigSpec.DoubleValue annihilatorSkillRange;
     public static ForgeConfigSpec.DoubleValue annihilatorSkillDamageMultiplier;
@@ -145,6 +146,8 @@ public class IncineratorsTryHardConfig
 
         coolDownForBloomStonePauldrons = BUILDER
                 .defineInRange("Cooldown time (ticks) of Bloom Stone Pauldrons to shoot Amethyst Cluster", 240,1,Integer.MAX_VALUE);
+        damageForBloomStonePauldrons = BUILDER
+                .defineInRange("Damage of Amethyst Clusters shot by Bloom Stone Pauldrons", 11.0F,0.1,Integer.MAX_VALUE);
 
         BUILDER.pop();
 
@@ -191,7 +194,7 @@ public class IncineratorsTryHardConfig
                 .defineInRange("Skill Cooldown time (ticks) of Cursium Boots", 200,1,Integer.MAX_VALUE);
 
         cursiumBootsSkillSpeed= BUILDER
-                .defineInRange("Skill Speed of Cursium Boots", -1.800F, Double.MIN_VALUE, Double.MAX_VALUE);
+                .defineInRange("Skill Speed of Cursium Boots", -1.800F, -1919810, 1919810);
 
         BUILDER.pop();
 

@@ -1,6 +1,6 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+
 import com.github.L_Ender.cataclysm.entity.projectile.Amethyst_Cluster_Projectile_Entity;
 import com.github.L_Ender.cataclysm.init.ModEntities;
 import com.github.L_Ender.cataclysm.init.ModItems;
@@ -40,7 +40,7 @@ public abstract class BloomStonePauldronsMixin extends ArmorItem {
                 double vy = (double)(0.0F + player.getRandom().nextFloat() * 0.3F);
                 double vz = (double)Mth.sin(throwAngle);
                 double v3 = (double)Mth.sqrt((float)(vx * vx + vz * vz));
-                Amethyst_Cluster_Projectile_Entity projectile = new Amethyst_Cluster_Projectile_Entity((EntityType) ModEntities.AMETHYST_CLUSTER_PROJECTILE.get(), player.level(), player, (float) CMConfig.AmethystClusterdamage);
+                Amethyst_Cluster_Projectile_Entity projectile = new Amethyst_Cluster_Projectile_Entity((EntityType) ModEntities.AMETHYST_CLUSTER_PROJECTILE.get(), player.level(), player, IncineratorsTryHardConfig.damageForBloomStonePauldrons.get().floatValue());
                 projectile.moveTo(sx, sy, sz, (float)i * 11.25F, player.getXRot());
                 float speed = 0.8F;
                 projectile.shoot(vx, vy + v3 * (double)0.2F, vz, speed, 1.0F);

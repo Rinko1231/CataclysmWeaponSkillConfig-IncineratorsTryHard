@@ -1,7 +1,6 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.projectile.Phantom_Arrow_Entity;
 import com.github.L_Ender.cataclysm.items.Cursed_bow;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
@@ -91,7 +90,7 @@ public abstract class CursedBowMixin extends ProjectileWeaponItem {
                                         LivingEntity target = (LivingEntity)pointedEntity;
                                         if (!target.isAlliedTo(living)) {
                                             Phantom_Arrow_Entity hommingArrowEntity = new Phantom_Arrow_Entity(level, living, target);
-                                            hommingArrowEntity.setBaseDamage(CMConfig.PlayerPhantomArrowbasedamage * (double)f);
+                                            hommingArrowEntity.setBaseDamage(CMCommonConfig.CursedBow.damage * (double)f);
                                             if (p > 0) {
                                                 hommingArrowEntity.setBaseDamage(hommingArrowEntity.getBaseDamage() + (double)p * 0.35 + (double)0.5F);
                                             }
@@ -102,7 +101,7 @@ public abstract class CursedBowMixin extends ProjectileWeaponItem {
                                     }
 
                                     Phantom_Arrow_Entity hommingArrowEntity = new Phantom_Arrow_Entity(level, living);
-                                    hommingArrowEntity.setBaseDamage(CMConfig.PlayerPhantomArrowbasedamage * (double)f);
+                                    hommingArrowEntity.setBaseDamage(CMCommonConfig.CursedBow.damage * (double)f);
                                     if (p > 0) {
                                         hommingArrowEntity.setBaseDamage(hommingArrowEntity.getBaseDamage() + (double)p * 0.35 + (double)0.5F);
                                     }

@@ -2,7 +2,7 @@ package com.rinko1231.incineratorstryhard.mixin;
 
 
 import com.github.L_Ender.cataclysm.init.ModItems;
-import com.github.L_Ender.cataclysm.items.Cursed_bow;
+
 import com.github.L_Ender.cataclysm.items.Cursium_Armor;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
 import net.minecraft.world.effect.MobEffectInstance;

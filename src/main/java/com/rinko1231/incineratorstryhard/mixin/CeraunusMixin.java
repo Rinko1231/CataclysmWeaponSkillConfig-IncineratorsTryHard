@@ -1,6 +1,6 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.effect.Wave_Entity;
 import com.github.L_Ender.cataclysm.entity.projectile.Player_Ceraunus_Entity;
 
@@ -66,7 +66,7 @@ public abstract class CeraunusMixin extends Item {
                 float angleStep = 25.0F;
                 double firstAngleOffset = (double)(numberOfWaves - 1) / (double)2.0F * (double)angleStep;
                 if (p_43396_.isShiftKeyDown()) {
-                    player.getCooldowns().addCooldown(this, CMConfig.CeraunusCooldown);
+                    player.getCooldowns().addCooldown(this, CMCommonConfig.Ceraunus.cooldown);
                     p_43395_.playSound((Player)null, player.getX(), player.getY(), player.getZ(), (SoundEvent) ModSounds.HEAVY_SMASH.get(), SoundSource.PLAYERS, 0.6F, 1.0F);
 
                     for(int k = 0; k < numberOfWaves; ++k) {
@@ -74,7 +74,7 @@ public abstract class CeraunusMixin extends Item {
                         double rad = Math.toRadians(angle);
                         double dx = -Math.sin(rad);
                         double dz = Math.cos(rad);
-                        Wave_Entity WaveEntity = new Wave_Entity(p_43395_, p_43396_, IncineratorsTryHardConfig.ceraunusLifeOfWaves.get(), (float)CMConfig.CeraunusWaveDamage);
+                        Wave_Entity WaveEntity = new Wave_Entity(p_43395_, p_43396_, IncineratorsTryHardConfig.ceraunusLifeOfWaves.get(), (float)CMCommonConfig.Ceraunus.waveDamage);
                         WaveEntity.setPos(spawnX, spawnY, spawnZ);
                         WaveEntity.setState(1);
                         WaveEntity.setYRot(-((float)(Mth.atan2(dx, dz) * (180D / Math.PI))));

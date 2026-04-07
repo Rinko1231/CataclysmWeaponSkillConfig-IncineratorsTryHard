@@ -1,7 +1,6 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.AnimationMonster.BossMonsters.The_Harbinger_Entity;
 import com.github.L_Ender.cataclysm.entity.projectile.Laser_Beam_Entity;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
@@ -42,7 +41,7 @@ public abstract class LaserBeamEntityMixin extends Projectile {
             Entity entity = this.getOwner();
             if (entity instanceof Player && !IncineratorsTryHardConfig.laserGatlingIgnite.get())
                 return;
-            if (CMConfig.HarbingerLightFire) {
+            if (CMCommonConfig.Harbinger.ignoreMobGriefing) {
                 BlockPos blockpos = p_37384_.getBlockPos().relative(p_37384_.getDirection());
                 if (this.level().isEmptyBlock(blockpos)) {
                     this.level().setBlockAndUpdate(blockpos, BaseFireBlock.getState(this.level(), blockpos));

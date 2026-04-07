@@ -1,10 +1,12 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.effect.Flame_Strike_Entity;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
-import com.github.L_Ender.cataclysm.items.More_Tool_Attribute;
+
+import com.github.L_Ender.cataclysm.items.Cataclysm_Weapon_Item;
 import com.github.L_Ender.cataclysm.items.The_Incinerator;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
 import net.minecraft.core.BlockPos;
@@ -27,10 +29,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = The_Incinerator.class)
 
-public abstract class TheIncineratorMixin extends Item implements More_Tool_Attribute {
+public abstract class TheIncineratorMixin extends Cataclysm_Weapon_Item {
 
-    public TheIncineratorMixin(Properties p_41383_) {
-        super(p_41383_);
+    public TheIncineratorMixin(Item.Properties properties) {
+        super(properties, (double)13.0F, (double)-2.6F);
     }
 
     @Shadow
@@ -56,7 +58,7 @@ public abstract class TheIncineratorMixin extends Item implements More_Tool_Attr
 
                 if (hasSucceeded) {
                     if (!p_43395_.isClientSide) {
-                        player.getCooldowns().addCooldown(this, CMConfig.TheIncineratorCooldown);
+                        player.getCooldowns().addCooldown(this, CMCommonConfig.Incinerator.cooldown);
                     }
 
                     ScreenShake_Entity.ScreenShake(p_43395_, player.position(), 30.0F, 0.15F, 0, 30);

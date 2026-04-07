@@ -1,6 +1,6 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-import com.github.L_Ender.cataclysm.client.particle.RingParticle;
+import com.github.L_Ender.cataclysm.client.particle.Options.RingParticleOptions;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
 import com.github.L_Ender.cataclysm.items.The_Annihilator;
@@ -34,8 +34,7 @@ public abstract class TheAnnihilatorMixin extends Item {
     @Overwrite
     private void yall(Level world, LivingEntity caster) {
         double radius = IncineratorsTryHardConfig.annihilatorSkillRange.get();
-        float radiusMul = (float) radius /30.0f;
-        ScreenShake_Entity.ScreenShake(world, caster.position(), 30.0f, 0.1F, 0, 30);
+        ScreenShake_Entity.ScreenShake(world, caster.position(), 30.0F, 0.1F, 0, 30);
         world.playSound((Player)null, caster.getX(), caster.getY(), caster.getZ(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS, 1.5F, 1.0F / (caster.getRandom().nextFloat() * 0.4F + 0.8F));
 
         for(Entity entity : world.getEntities(caster, caster.getBoundingBox().inflate(radius, radius, radius))) {
@@ -45,7 +44,7 @@ public abstract class TheAnnihilatorMixin extends Item {
         }
 
         if (world.isClientSide) {
-            world.addParticle(new RingParticle.RingData(0.0F, ((float)Math.PI / 2F), 30, 0.337F, 0.925F, 0.8F, 1.0F, 85.0F*radiusMul, false, RingParticle.EnumRingBehavior.GROW), caster.getX(), caster.getY() + (double)0.03F, caster.getZ(), (double)0.0F, (double)0.0F, (double)0.0F);
+            world.addParticle(new RingParticleOptions(0.0F, ((float)Math.PI / 2F), 30, 86, 236, 204, 1.0F, 85.0F, false, 0), caster.getX(), caster.getY() + (double)0.03F, caster.getZ(), (double)0.0F, (double)0.0F, (double)0.0F);
         }
 
     }
