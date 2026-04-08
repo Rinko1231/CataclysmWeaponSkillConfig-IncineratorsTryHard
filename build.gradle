@@ -126,7 +126,7 @@ dependencies {
     runtimeOnly "curse.maven:cloth-config-348521:5729127"
 
     //runtimeOnly "curse.maven:mo-enchantments-621282:6509664"
-    implementation "curse.maven:lendercataclysm-551586:6687280"
+    implementation "curse.maven:lendercataclysm-551586:7845980"
     implementation "curse.maven:curios-309927:6529130"
     implementation "curse.maven:lionfish-api-1001614:6168249"
 

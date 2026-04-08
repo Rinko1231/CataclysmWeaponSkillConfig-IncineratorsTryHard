@@ -3,8 +3,9 @@ package com.rinko1231.incineratorstryhard.mixin;
 
 
 import com.github.L_Ender.cataclysm.Attachment.ChargeAttachment;
-import com.github.L_Ender.cataclysm.config.CMConfig;
 
+
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.init.ModDataAttachments;
 import com.github.L_Ender.cataclysm.items.Gauntlet_of_Bulwark;
 import com.rinko1231.incineratorstryhard.config.IncineratorsTryHardConfig;
@@ -62,7 +63,7 @@ public abstract class GauntletOfBulwarkMixin extends Item {
 
 
                 if (!level.isClientSide) {
-                    ((Player)entityLiving).getCooldowns().addCooldown(this, CMConfig.GauntletOfBulwarkCooldown);
+                    ((Player)entityLiving).getCooldowns().addCooldown(this,  CMCommonConfig.GauntletOfBulwark.cooldown);
                 }
             }
         }

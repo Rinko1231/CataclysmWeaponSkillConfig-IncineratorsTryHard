@@ -1,6 +1,6 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.effect.Flame_Strike_Entity;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
@@ -55,7 +55,7 @@ public abstract class TheImmolatorMixin extends Item {
 
                 if (hasSucceeded) {
                     if (!p_43395_.isClientSide) {
-                        player.getCooldowns().addCooldown(this, CMConfig.ImmolatorCooldown);
+                        player.getCooldowns().addCooldown(this, CMCommonConfig.Immolator.cooldown);
                     }
 
                     ScreenShake_Entity.ScreenShake(p_43395_, player.position(), 30.0F, 0.15F, 0, 30);

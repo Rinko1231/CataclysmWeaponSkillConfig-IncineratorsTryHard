@@ -1,7 +1,7 @@
 package com.rinko1231.incineratorstryhard.mixin;
 
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.projectile.Phantom_Arrow_Entity;
 import com.github.L_Ender.cataclysm.items.Cursed_bow;
 import net.minecraft.core.Holder;
@@ -59,14 +59,14 @@ public abstract class CursedBowMixin extends ProjectileWeaponItem {
                                 LivingEntity tango = (LivingEntity)target;
                                 if (!target.isAlliedTo(shooter)) {
                                     Phantom_Arrow_Entity hommingArrowEntity = new Phantom_Arrow_Entity(level, shooter, tango);
-                                    hommingArrowEntity.setBaseDamage(CMConfig.PlayerPhantomArrowbasedamage * (double)velocity);
+                                    hommingArrowEntity.setBaseDamage(CMCommonConfig.CursedBow.damage * (double)velocity);
                                     abstractarrow = hommingArrowEntity;
                                     break label71;
                                 }
                             }
 
                             Phantom_Arrow_Entity hommingArrowEntity = new Phantom_Arrow_Entity(level, shooter);
-                            hommingArrowEntity.setBaseDamage(CMConfig.PlayerPhantomArrowbasedamage * (double)velocity);
+                            hommingArrowEntity.setBaseDamage(CMCommonConfig.CursedBow.damage * (double)velocity);
                             abstractarrow = hommingArrowEntity;
                         }
                     } else {

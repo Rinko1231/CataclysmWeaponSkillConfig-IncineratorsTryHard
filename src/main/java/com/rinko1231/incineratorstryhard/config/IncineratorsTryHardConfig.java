@@ -33,6 +33,7 @@ public class IncineratorsTryHardConfig
     public static ModConfigSpec.DoubleValue ChargeDamageMultiplierOfGauntletOfBulwark;
 
     public static ModConfigSpec.IntValue coolDownForBloomStonePauldrons;
+    public static ModConfigSpec.DoubleValue damageForBloomStonePauldrons;
 
     public static ModConfigSpec.DoubleValue annihilatorSkillRange;
     public static ModConfigSpec.DoubleValue annihilatorSkillDamageMultiplier;
@@ -165,6 +166,8 @@ public class IncineratorsTryHardConfig
         coolDownForBloomStonePauldrons = BUILDER
                 .translation("description.cataclysm_weapon_config.cooldown_bloom_stone_pauldrons")
                 .defineInRange("Cooldown time (ticks) of Bloom Stone Pauldrons to shoot Amethyst Cluster", 240,1,Integer.MAX_VALUE);
+        damageForBloomStonePauldrons = BUILDER
+                .defineInRange("Damage of Amethyst Clusters shot by Bloom Stone Pauldrons", 11.0F,0.1,Integer.MAX_VALUE);
 
         BUILDER.pop();
 
